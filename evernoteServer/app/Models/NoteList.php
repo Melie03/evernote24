@@ -18,4 +18,8 @@ class NoteList extends Model
     public function notes() {
         return $this->hasMany(Note::class);
     }
+    public function shared()
+    {
+        return static::belongsToMany(NoteList::class, 'note_list_shared', 'user_id', 'note_list_id');
+    }
 }

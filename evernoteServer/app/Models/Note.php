@@ -20,7 +20,8 @@ class Note extends Model
     }
 
     public function tags() {
-        return $this->belongsToMany(Tag::class);
+        return static::belongsToMany(Tag::class, 'note_tag', 'note_id', 'tag_id');
     }
+
 }
 

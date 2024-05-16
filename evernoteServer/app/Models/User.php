@@ -23,5 +23,9 @@ class User extends Model
     public function todos() {
         return $this->hasMany(Todo::class, 'assigned_user_id');
     }
+    public function shared()
+    {
+        return static::belongsToMany(NoteList::class, 'note_list_shared', 'user_id', 'note_list_id');
+    }
 }
 ?>
