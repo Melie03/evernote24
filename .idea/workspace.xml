@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de8a5edf-a460-4eba-bb53-1ad10d631578" name="Changes" comment="routes &amp; Controller">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+    <list default="true" id="de8a5edf-a460-4eba-bb53-1ad10d631578" name="Changes" comment="minor fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/NoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/NoteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/NoteListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/NoteListController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/TagController.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/TagController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/TodoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/TodoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernoteServer/app/Models/Note.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Models/Note.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernoteServer/app/Models/NoteList.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Models/NoteList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernoteServer/app/Models/Todo.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Models/Todo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernoteServer/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernoteServer/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernoteServer/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernoteServer/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +172,7 @@
     &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/00_FH/Studienprojekt6/psy-backend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/00_FH/Web6/Hue/evernote24&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -231,6 +220,11 @@
       <workItem from="1715844572958" duration="53000" />
       <workItem from="1715859951444" duration="718000" />
       <workItem from="1715878807724" duration="4954000" />
+      <workItem from="1715893171669" duration="334000" />
+      <workItem from="1715931846877" duration="2303000" />
+      <workItem from="1715943487606" duration="452000" />
+      <workItem from="1715960490807" duration="45000" />
+      <workItem from="1715968352212" duration="9169000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -248,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713603776692</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="minor fixes">
+      <option name="closed" value="true" />
+      <created>1715893208925</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715893208925</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,7 +259,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="routes &amp; Controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="routes &amp; Controller" />
+    <MESSAGE value="minor fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor fixes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
