@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -17,15 +18,16 @@ class UserController extends Controller
     public function store(Request $request)
     {
         DB::beginTransaction();
-
         try {
-            $user = User::create($request->all());
             $request->validate([
                 'first_name' => 'required|string|max:255',
                 'last_name' => 'required|string|max:255',
                 'email' => 'required|email',
                 'password' => 'required|string|min:8'
             ]);
+            $request = $this->hashPassword($request);
+            $user = User::create($request->all());
+
             DB::commit();
             return response()->json($user, 201);
         } catch (\Exception $e) {
@@ -49,7 +51,7 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email,' . $id,
             'password' => 'required|string|min:8'
         ]);
-
+        $validated = $this->hashPassword($validated);
         $user->update($validated);
         return response()->json($user);
     }
@@ -61,6 +63,9 @@ class UserController extends Controller
         $user->delete();
         return response()->json(null, 204);
     }
-
+    private function hashPassword (Request $request) : Request {
+        $request ['password'] = Hash::make($request['password']);
+        return $request;
+    }
 
 }

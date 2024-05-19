@@ -69,7 +69,7 @@ class TodoController extends Controller
         try {
             $todo = Todo::findOrFail($id);
             $request->validate([
-                'title' => 'required|string|max:15',
+                'title' => 'required|string|max:30',
                 'description' => 'required|string|min:10|max:255',
                 'due_date' => 'nullable|date',
                 'note_id' => 'nullable|exists:notes,id',

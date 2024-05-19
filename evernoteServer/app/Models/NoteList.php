@@ -20,6 +20,10 @@ class NoteList extends Model
     }
     public function shared()
     {
-        return static::belongsToMany(NoteList::class, 'note_list_shared', 'user_id', 'note_list_id');
+        return static::belongsToMany(NoteList::class, 'note_list_shared',  'note_list_id','user_id');
+    }
+    public function sharedUsers()
+    {
+        return static::belongsToMany(User::class, 'note_list_shared',  'note_list_id','user_id');
     }
 }

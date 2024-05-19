@@ -32,6 +32,7 @@ class NoteListController extends Controller
             return response()->json("saving list failed: " . $e->getMessage(), 500);
         }
     }
+
     public function update(Request $request, $id)
     {
         DB::beginTransaction();
@@ -46,12 +47,13 @@ class NoteListController extends Controller
             DB::commit();
             $noteList = NoteList::findOrFail($id);
             return response()->json($noteList, 200);
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             DB::rollBack();
             return response()->json("updating list failed: " . $e->getMessage(), 500);
         }
 
     }
+
     public function shareList(Request $request, $listId, $userId)
     {
         DB::beginTransaction();
@@ -100,12 +102,20 @@ class NoteListController extends Controller
         }
     }
 
+    public function getUsersWhoShareLists($listId)
+    {
+        $noteList = NoteList::findOrFail($listId);
+        $users = $noteList->sharedUsers()->wherePivot('status', true)->get();
+        $users->push(User::findOrFail($noteList->user_id));
+        return response()->json($users);
+    }
+
     public function destroy($id)
     {
         DB::beginTransaction();
         try {
             $noteList = NoteList::where('id', $id)->first();
-            if($noteList == null) {
+            if ($noteList == null) {
                 DB::commit();
                 return response()->json("NoteList not found", 404);
             }
@@ -117,6 +127,7 @@ class NoteListController extends Controller
             return response()->json("deleting list failed: " . $e->getMessage(), 500);
         }
     }
+
     public function getById($id)
     {
         $noteList = NoteList::findOrFail($id);
@@ -130,6 +141,7 @@ class NoteListController extends Controller
         $notes = $noteList->notes;
         return response()->json($notes);
     }
+
     public function getByUserId($userId)
     {
         $noteLists = NoteList::where('user_id', $userId)->get();

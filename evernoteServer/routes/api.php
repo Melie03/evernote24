@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+Route::post('auth/login', [AuthController::class,'login']);
+Route::group(['middleware' => ['api','auth.jwt']], function(){
 // NoteLists Routes
 Route::get('/noteLists', [App\Http\Controllers\NoteListController::class, 'index']);
 Route::get('/noteLists/{id}', [App\Http\Controllers\NoteListController::class, 'getById']);
@@ -30,6 +32,8 @@ Route::delete('/noteLists/{id}', [App\Http\Controllers\NoteListController::class
 Route::get('/noteLists/shared/{userId}', [App\Http\Controllers\NoteListController::class, 'getSharedListsByUserId']);
 Route::put('/noteLists/{listId}/share/{userId}/accept', [App\Http\Controllers\NoteListController::class, 'acceptSharedList']);
 Route::put('/noteLists/{listId}/share/{userId}/decline', [App\Http\Controllers\NoteListController::class, 'declineSharedList']);
+Route::get('/noteLists/shared/{userId}/pending', [App\Http\Controllers\NoteListController::class, 'getAllPendingLists']);
+Route::get('/noteLists/{listId}/shared', [App\Http\Controllers\NoteListController::class, 'getUsersWhoShareLists']);
 
 // Notes Routes
 Route::get('/notes', [App\Http\Controllers\NoteController::class, 'index']);
@@ -63,3 +67,6 @@ Route::get('/users/{id}', [App\Http\Controllers\UserController::class, 'show']);
 Route::post('/users', [App\Http\Controllers\UserController::class, 'store']);
 Route::put('/users/{id}', [App\Http\Controllers\UserController::class, 'update']);
 Route::delete('/users/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
+Route::get('auth/me', [AuthController::class, 'me']);
+Route::post('auth/logout', [AuthController::class, 'logout']);
+});
