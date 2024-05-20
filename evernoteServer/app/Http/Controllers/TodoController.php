@@ -17,6 +17,12 @@ class TodoController extends Controller
         return response()->json($todos);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to store a new ToDo in the database.
+     */
     public function store(Request $request)
     {
         $request = $this->parseRequest($request);
@@ -43,12 +49,26 @@ class TodoController extends Controller
             return response()->json("saving ToDo failed: " . $e->getMessage(), 500);
         }
     }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to get a ToDo by its id.
+     */
     public function getTagsByTodoId($id)
     {
         $todo = Todo::findOrFail($id);
         $tags = $todo->tags;
         return response()->json($tags);
     }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to get a ToDo by its id.
+     */
     public function getTodoWithoutNote()
     {
         $todos = Todo::where('note_id', null)->get();
@@ -56,12 +76,25 @@ class TodoController extends Controller
 
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to get a ToDo by its id.
+     */
     public function show($id)
     {
         $todo = Todo::findOrFail($id);
         return response()->json($todo);
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to update a ToDo in the database.
+     */
     public function update(Request $request, $id)
     {
         $request = $this->parseRequest($request);
@@ -109,6 +142,12 @@ class TodoController extends Controller
 
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to delete a ToDo from the database.
+     */
     public function destroy($id)
     {
         DB::beginTransaction();
@@ -126,6 +165,13 @@ class TodoController extends Controller
             return response()->json("deleting ToDo failed: " . $e->getMessage(), 500);
         }
     }
+    /**
+     * @param Request $request
+     * @return Request
+     *
+     * This method is used to parse the request.
+     */
+
     private function parseRequest (Request $request) : Request {
         $date = new \DateTime($request->due_date);
         $request['due_date'] = $date->format('Y-m-d H:i:s');

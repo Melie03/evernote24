@@ -15,6 +15,12 @@ class UserController extends Controller
         return response()->json($users);
     }
 
+/**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to store a new User in the database.
+     */
     public function store(Request $request)
     {
         DB::beginTransaction();
@@ -36,12 +42,25 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to get a User by its id.
+     */
     public function show($id)
     {
         $user = User::findOrFail($id);
         return response()->json($user);
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to update a User in the database.
+     */
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
@@ -56,13 +75,26 @@ class UserController extends Controller
         return response()->json($user);
     }
 
-
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to delete a User from the database.
+     */
     public function destroy($id)
     {
         $user = User::findOrFail($id);
         $user->delete();
         return response()->json(null, 204);
     }
+
+    /**
+     * @param Request $request
+     * @return Request
+     *
+     * This method is used to hash the password of a user.
+     
+     */
     private function hashPassword (Request $request) : Request {
         $request ['password'] = Hash::make($request['password']);
         return $request;

@@ -9,7 +9,7 @@ class Note extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'note_list_id'];
+    protected $fillable = ['title', 'description', 'note_list_id','img'];
 
     public function noteList() {
         return $this->belongsTo(NoteList::class);

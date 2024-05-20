@@ -15,6 +15,12 @@ class TagController extends Controller
         return response()->json($tags);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to store a new Tag in the database.
+     */
     public function store(Request $request)
     {
         DB::beginTransaction();
@@ -37,12 +43,25 @@ class TagController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to get a Tag by its id.
+     */
     public function show($id)
     {
         $tag = Tag::findOrFail($id);
         return response()->json($tag);
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to update a Tag in the database.
+     */
     public function update(Request $request, $id)
     {
         DB::beginTransaction();
@@ -65,6 +84,12 @@ class TagController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to delete a Tag from the database.
+     */
     public function destroy($id)
     {
         DB::beginTransaction();

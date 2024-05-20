@@ -16,6 +16,12 @@ class NoteController extends Controller
         return response()->json($notes);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to store a new Note in the database.
+     */
     public function store(Request $request)
     {
         DB::beginTransaction();
@@ -44,6 +50,12 @@ class NoteController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to get a Note by its id.
+     */
     public function show($id)
     {
         $note = Note::findOrFail($id);
@@ -51,6 +63,12 @@ class NoteController extends Controller
         return response()->json($note);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to get all tags of a Note by its id.
+     */
     public function getTagsByNoteId($id)
     {
         $note = Note::findOrFail($id);
@@ -58,6 +76,13 @@ class NoteController extends Controller
         return response()->json($tags);
     }
 
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to get all todos of a Note by its id.
+     */
     public function getTodoByNoteId($id)
     {
         $note = Note::findOrFail($id);
@@ -65,6 +90,13 @@ class NoteController extends Controller
         return response()->json($todos);
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to update a Note in the database.
+     */
     public function update(Request $request, $id)
     {
         DB::beginTransaction();
@@ -109,7 +141,12 @@ class NoteController extends Controller
         }
     }
 
-
+/**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to delete a Note from the database.
+     */
     public function destroy($id)
     {
         $note = Note::findOrFail($id);

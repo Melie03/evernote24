@@ -15,6 +15,12 @@ class NoteListController extends Controller
         return response()->json($noteLists);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to store a new NoteList in the database.
+     */
     public function store(Request $request)
     {
         DB::beginTransaction();
@@ -33,6 +39,13 @@ class NoteListController extends Controller
         }
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to update a NoteList in the database.
+     */
     public function update(Request $request, $id)
     {
         DB::beginTransaction();
@@ -54,6 +67,14 @@ class NoteListController extends Controller
 
     }
 
+    /**
+     * @param Request $request
+     * @param $listId
+     * @param $userId
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to share a NoteList with a user.
+     */
     public function shareList(Request $request, $listId, $userId)
     {
         DB::beginTransaction();
@@ -68,12 +89,24 @@ class NoteListController extends Controller
         }
     }
 
+    /**
+     * @param $userId
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to get all the NoteLists shared with a user.
+     */
     public function getAllPendingLists($userId)
     {
         $noteLists = User::findOrFail($userId)->shared()->wherePivot('status', false)->get();
         return response()->json($noteLists);
     }
 
+    /**
+     * @param $userId
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to get all the NoteLists shared with a user.
+     */
     public function acceptSharedList($listId, $userId)
     {
         DB::beginTransaction();
@@ -88,6 +121,12 @@ class NoteListController extends Controller
         }
     }
 
+    /**
+     * @param $userId
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to get all the NoteLists shared with a user.
+     */
     public function declineSharedList($listId, $userId)
     {
         DB::beginTransaction();
@@ -102,6 +141,12 @@ class NoteListController extends Controller
         }
     }
 
+    /**
+     * @param $userId
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to get all the NoteLists shared with a user.
+     */
     public function getUsersWhoShareLists($listId)
     {
         $noteList = NoteList::findOrFail($listId);
@@ -110,6 +155,12 @@ class NoteListController extends Controller
         return response()->json($users);
     }
 
+    /**
+     * @param $userId
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to get all the NoteLists shared with a user.
+     */
     public function destroy($id)
     {
         DB::beginTransaction();
@@ -128,6 +179,12 @@ class NoteListController extends Controller
         }
     }
 
+    /**
+     * @param $userId
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to get all the NoteLists shared with a user.
+     */
     public function getById($id)
     {
         $noteList = NoteList::findOrFail($id);
@@ -135,6 +192,12 @@ class NoteListController extends Controller
 
     }
 
+    /**
+     * @param $userId
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to get all the NoteLists shared with a user.
+     */
     public function getNotesByListId($id)
     {
         $noteList = NoteList::findOrFail($id);
@@ -142,6 +205,12 @@ class NoteListController extends Controller
         return response()->json($notes);
     }
 
+    /**
+     * @param $userId
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * This method is used to get all the NoteLists shared with a user.
+     */
     public function getByUserId($userId)
     {
         $noteLists = NoteList::where('user_id', $userId)->get();

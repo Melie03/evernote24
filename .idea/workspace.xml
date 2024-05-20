@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de8a5edf-a460-4eba-bb53-1ad10d631578" name="Changes" comment="minor fixes">
+    <list default="true" id="de8a5edf-a460-4eba-bb53-1ad10d631578" name="Changes" comment="minor changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/NoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/NoteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/NoteListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/NoteListController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/TagController.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/TagController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/TodoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/TodoController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernoteServer/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernoteServer/app/Models/NoteList.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Models/NoteList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernoteServer/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernoteServer/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evernoteServer/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evernoteServer/app/Models/Note.php" beforeDir="false" afterPath="$PROJECT_DIR$/evernoteServer/app/Models/Note.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +230,7 @@
       <workItem from="1715943487606" duration="452000" />
       <workItem from="1715960490807" duration="45000" />
       <workItem from="1715968352212" duration="9169000" />
-      <workItem from="1716018409533" duration="20541000" />
+      <workItem from="1716018409533" duration="25458000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -266,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716018712009</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="minor changes">
+      <option name="closed" value="true" />
+      <created>1716129105425</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716129105425</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +282,8 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="routes &amp; Controller" />
     <MESSAGE value="minor fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor fixes" />
+    <MESSAGE value="minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
